@@ -9,5 +9,10 @@
   },
   "repository": "https://github.com/wrule/binance-futures-data-downloader.git",
   "license": "MIT",
-  "private": false
+  "private": false,
+  "dependencies": {
+    "@types/jsdom": "^16.2.14",
+    "axios": "^0.27.2",
+    "jsdom": "^19.0.0"
+  }
 }
