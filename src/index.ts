@@ -12,10 +12,13 @@ async function main() {
 
   const document = new JSDOM(rsp.data).window.document;
   const keys = document.querySelectorAll('ListBucketResult > Contents > Key');
-  const filePaths = Array.from(keys).map((key) => key.innerHTML);
-  filePaths.forEach((filePath) => {
-    console.log(filePath);
-  });
+  const paths = Array.from(keys)
+    .map((key) => key.innerHTML.trim())
+    .filter((path) => path.endsWith('.zip'));
+  console.log(paths.length);
+  // paths.forEach((filePath) => {
+  //   console.log(filePath);
+  // });
 }
 
 main();
