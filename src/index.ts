@@ -22,8 +22,8 @@ async function main() {
   //   console.log(filePath);
   // });
 
-  const d = new Downloader();
-  d.download('https://data.binance.vision/data/futures/um/daily/klines/BTCUSDT/1m/BTCUSDT-1m-2021-05-18.zip');
+  const d = new Downloader('BTCUSDT');
+  d.download('https://data.binance.vision/data/futures/um/daily/klines/BTCUSDT/1m/BTCUSDT-1m-2021-05-18.zip', false);
 }
 
 main();
