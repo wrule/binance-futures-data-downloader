@@ -14,17 +14,35 @@ class Downloader {
   private dirPath = '';
 
   public async download(fileUrl: string, check: boolean = true) {
-    const reqList = [axios.get(fileUrl, { responseType: 'stream' })];
-    const checkFileUrl = fileUrl + '.CHECKSUM';
-    if (check) {
-      reqList.push(axios.get(checkFileUrl, { responseType: 'stream' }));
+    try {
+      const reqList = [axios.get(fileUrl, { responseType: 'stream' })];
+      const checkFileUrl = fileUrl + '.CHECKSUM';
+      if (check) {
+        reqList.push(axios.get(checkFileUrl, { responseType: 'stream' }));
+      }
+      const rspList = await Promise.all(reqList);
+      const fileRsp = rspList[0];
+      fileRsp.data.pipe(fs.createWriteStream(path.join(this.dirPath, path.basename(fileUrl))));
+      if (check) {
+        const checkFileRsp = rspList[1];
+        checkFileRsp.data.pipe(fs.createWriteStream(path.join(this.dirPath, path.basename(checkFileUrl))));
+      }
+    } catch (e) {
+      console.error(fileUrl);
     }
-    const rspList = await Promise.all(reqList);
-    const fileRsp = rspList[0];
-    fileRsp.data.pipe(fs.createWriteStream(path.join(this.dirPath, path.basename(fileUrl))));
-    if (check) {
-      const checkFileRsp = rspList[1];
-      checkFileRsp.data.pipe(fs.createWriteStream(path.join(this.dirPath, path.basename(checkFileUrl))));
+  }
+
+  public async batchDownload(
+    fileUrls: string[],
+    batchSize: number = 5,
+    check: boolean = true,
+  ) {
+    for (let i = 0; i < fileUrls.length; i += batchSize) {
+      console.log(i);
+      await Promise.all(
+        fileUrls.slice(i, i + batchSize)
+          .map((fileUrl) => this.download(fileUrl, check))
+      );
     }
   }
 }
