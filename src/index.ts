@@ -1,10 +1,10 @@
 import axios from "axios";
 import { JSDOM } from 'jsdom';
 import { Downloader } from './downloader';
-import xml1m from './1m';
+import xmlBTC from './btc';
 
 async function main() {
-  const document = new JSDOM(xml1m).window.document;
+  const document = new JSDOM(xmlBTC).window.document;
   const list = Array.from(document.querySelectorAll('body > a'))
     .map((item) => item.getAttribute('href'))
     .filter((item) => item?.endsWith('.zip')) as string[];
