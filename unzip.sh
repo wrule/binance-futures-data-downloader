@@ -1,5 +1,5 @@
 #!/bin/bash
-cd ETHUSDT
+cd BTCUSDT
 echo '🚀解压文件中...'
 rm *.csv
 unzip '*.zip'
