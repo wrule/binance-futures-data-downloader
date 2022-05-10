@@ -1,4 +1,4 @@
-<tbody id="listing"><tr><td><a href="?prefix=data/futures/um/daily/klines/BTCUSDT/">../</a></td><td></td><td></td></tr>
+const xmlText = `<tbody id="listing"><tr><td><a href="?prefix=data/futures/um/daily/klines/BTCUSDT/">../</a></td><td></td><td></td></tr>
 <tr><td><a href="https://data.binance.vision/data/futures/um/daily/klines/BTCUSDT/1m/BTCUSDT-1m-2021-05-18.zip.CHECKSUM">BTCUSDT-1m-2021-05-18.zip.CHECKSUM</a></td><td>0.1 kB</td><td>2022-03-26T04:57:26.000Z</td></tr>
 <tr><td><a href="https://data.binance.vision/data/futures/um/daily/klines/BTCUSDT/1m/BTCUSDT-1m-2021-05-18.zip">BTCUSDT-1m-2021-05-18.zip</a></td><td>67.1 kB</td><td>2022-03-26T04:57:26.000Z</td></tr>
 <tr><td><a href="https://data.binance.vision/data/futures/um/daily/klines/BTCUSDT/1m/BTCUSDT-1m-2021-05-17.zip.CHECKSUM">BTCUSDT-1m-2021-05-17.zip.CHECKSUM</a></td><td>0.1 kB</td><td>2022-03-26T04:57:26.000Z</td></tr>
@@ -1707,4 +1707,6 @@
 <tr><td><a href="https://data.binance.vision/data/futures/um/daily/klines/BTCUSDT/1m/BTCUSDT-1m-2021-05-20.zip">BTCUSDT-1m-2021-05-20.zip</a></td><td>68.2 kB</td><td>2022-03-26T04:57:26.000Z</td></tr>
 <tr><td><a href="https://data.binance.vision/data/futures/um/daily/klines/BTCUSDT/1m/BTCUSDT-1m-2021-05-19.zip.CHECKSUM">BTCUSDT-1m-2021-05-19.zip.CHECKSUM</a></td><td>0.1 kB</td><td>2022-03-26T04:57:26.000Z</td></tr>
 <tr><td><a href="https://data.binance.vision/data/futures/um/daily/klines/BTCUSDT/1m/BTCUSDT-1m-2021-05-19.zip">BTCUSDT-1m-2021-05-19.zip</a></td><td>69.3 kB</td><td>2022-03-26T04:57:26.000Z</td></tr>
-</tbody>
+</tbody>`;
+
+export default xmlText;
