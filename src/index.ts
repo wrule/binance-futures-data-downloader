@@ -10,7 +10,7 @@ async function main() {
     .filter((item) => item?.endsWith('.zip')) as string[];
 
   const d = new Downloader('BTCUSDT');
-  d.batchDownload(list, 5, true);
+  d.batchDownload(list, 10, true);
 }
 
 main();
