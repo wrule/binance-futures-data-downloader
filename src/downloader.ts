@@ -29,9 +29,7 @@ class Downloader {
         checkFileRsp.data.pipe(fs.createWriteStream(path.join(this.dirPath, path.basename(checkFileUrl))));
       }
     } catch (e) {
-      console.error(`[${moment().format('YYYY-MM-DD HH:mm:sss:SSS')} 文件下载失败]: ${fileUrl}`);
-    } finally {
-      console.log(`[${moment().format('YYYY-MM-DD HH:mm:sss:SSS')} 尝试重新下载]: ${fileUrl}`);
+      console.error(`[${moment().format('YYYY-MM-DD HH:mm:sss:SSS')} 文件下载失败，尝试重新下载]: ${fileUrl}`);
       await this.download(fileUrl, check);
     }
   }
