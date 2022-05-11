@@ -1,7 +1,7 @@
 import axios from "axios";
 import { JSDOM } from 'jsdom';
 import { Downloader } from './downloader';
-import xmlText from './eth';
+import xmlText from './btc';
 import moment, { Moment } from "moment";
 import { load_csv } from '@wrule/ohlcv-utils';
 
