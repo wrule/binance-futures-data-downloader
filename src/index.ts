@@ -16,16 +16,11 @@ interface IOHLCV {
   source?: number[];
 }
 
-function now() {
-  return moment().format('YYYY-MM-DD HH:mm:ss:SSS');
-}
-
 function log(name: string, text = '') {
-  console.log(`[${now()} ${name}]${text ? `: ${text}` : '...'}`);
+  console.log(`[${moment().format('YYYY-MM-DD HH:mm:ss:SSS')} ${name}]${text ? `: ${text}` : '...'}`);
 }
 
-
-function loadOHLCVFile(filePath: string, interval = 60000): IOHLCV[] {
+function load_csv(filePath: string, interval = 60000): IOHLCV[] {
   log('读取csv文件');
   const csvText = fs.readFileSync(filePath, 'utf-8');
   log('解析csv文件');
@@ -64,7 +59,7 @@ function loadOHLCVFile(filePath: string, interval = 60000): IOHLCV[] {
 }
 
 async function main() {
-  const list = loadOHLCVFile('./ETHUSDT/result.csv');
+  const list = load_csv('./ETHUSDT/result.csv');
   // console.log(list[0]);
 
   // const document = new JSDOM(xmlText).window.document;
